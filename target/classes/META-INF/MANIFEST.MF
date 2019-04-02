@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Built-By: iseonmin
+Build-Jdk: 10.0.2
+Implementation-Title: spring-service
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: spring-service
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-URL: http://projects.spring.io/spring-boot/spring-servi
+ ce/
+Created-By: Maven Integration for Eclipse
+
