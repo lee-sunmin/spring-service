@@ -20,6 +20,13 @@
 	</properties>
 
 	<dependencies>
+		<!-- jackson -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+
 		<!--test case -->
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
