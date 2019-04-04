@@ -1,12 +1,18 @@
 package springservice.domain;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.*;
 
@@ -14,10 +20,13 @@ import lombok.*;
 @Getter
 @Entity
 @Table(name = "REGIONS_INF")
-public class RegionsInf extends BaseTimeEntity {
+public class RegionsInf {// extends BaseTimeEntity {
+
+	// @GeneratedValue
 	@Id
-	@GeneratedValue
-	private Long regid;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", insertable = true, updatable = true, unique = true, nullable = false)
+	private Long id;
 
 	// FK
 	@OneToOne
@@ -45,16 +54,18 @@ public class RegionsInf extends BaseTimeEntity {
 	@Column(columnDefinition = "TEXT", nullable = false)
 	private String reception;
 
-//	@Column
-//	private LocalDateTime crtTm;
-//
-//	@Column
-//	private LocalDateTime chgTm;
+	@Column(updatable = false)
+	@CreationTimestamp
+	private LocalDateTime createDateTime;
+
+	@Column
+	@UpdateTimestamp
+	private LocalDateTime updateDateTime;
 
 	@Builder
-	public RegionsInf(Regions regions, String target, String usage, String slimit, String rate, String institute,
-			String mgmt, String reception) {
-		// this.region_cd = region_cd;
+	public RegionsInf(Long id, Regions regions, String target, String usage, String slimit, String rate,
+			String institute, String mgmt, String reception) {
+		this.id = id;
 		this.regions = regions;
 		this.target = target;
 		this.usage = usage;
@@ -63,8 +74,5 @@ public class RegionsInf extends BaseTimeEntity {
 		this.institute = institute;
 		this.mgmt = mgmt;
 		this.reception = reception;
-//		this.crtTm = crtTm;
-//		this.chgTm = chgTm;
 	}
-
 }

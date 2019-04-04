@@ -41,7 +41,7 @@ public class SelectController {
 
 				Map<String, Object> map = new HashMap<String, Object>();
 				RegionsInf regionsInf = regionsInfList.get(i);
-				String region = regionsRepository.findBycode(regionsInf.getRegid()).getName();
+				String region = regionsRepository.findBycode(regionsInf.getId()).getName();
 
 				map.put("region", region);
 				map.put("target", regionsInf.getTarget());

@@ -48,7 +48,7 @@ public class RegionsInfRepositoryTest {
 
 		// then
 		RegionsInf regionsInf = regionsInfList.get(0);
-		assertThat(regionsInf.getRegid(), is(1L));
+		assertThat(regionsInf.getId(), is(1L));
 		assertThat(regionsInf.getRegions().getCode(), is(1L));
 		assertThat(regionsInf.getTarget(), is("강릉시 소재 중소기업으로서 강릉시장이 추천한 자"));
 		assertThat(regionsInf.getUsage(), is("운전"));
