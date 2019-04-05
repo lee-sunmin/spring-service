@@ -78,7 +78,7 @@ public class UploadController {
 						.save(RegionsInf.builder().regions(regions).target(sLine[2]).usage(sLine[3]).slimit(sLine[4])
 								.rate(sLine[5]).institute(sLine[6]).mgmt(sLine[7]).reception(sLine[8]).build());
 
-				System.out.println("success " + sLine[1]);
+				// System.out.println("success " + sLine[1]);
 			}
 		} catch (Exception e) {
 			System.out.println("error : " + e);

@@ -1,6 +1,8 @@
 package springservice.controllers;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,10 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import lombok.AllArgsConstructor;
 import springservice.domain.RegionsInf;
 import springservice.domain.RegionsInfRepository;
+import springservice.domain.RegionsNode;
 import springservice.domain.RegionsRepository;
 
 @RestController
@@ -100,6 +104,200 @@ public class SelectController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return json;
+	}
+
+	@RequestMapping("/sort")
+	public String selectLimitSortedRegions(@RequestParam int num) {
+		String json = "";
+		try {
+			List<RegionsInf> regionsInfList = regionsInfRepository.findAll();
+
+			RegionsNode[] RegionsNodes = new RegionsNode[regionsInfList.size()];
+
+			// for
+			for (int i = 0; i < regionsInfList.size(); i++) {
+
+				RegionsInf regionsInf = regionsInfList.get(i);
+
+				RegionsNode node = new RegionsNode();
+
+				String name = regionsRepository.findBycode(regionsInf.getRegions().getCode()).getName();
+
+				node.setName(name);
+
+				String slimit = regionsInf.getSlimit();
+
+				String value = "";
+				String unit = "";
+
+				for (int j = 0; j < slimit.length(); j++) {
+					char ch = slimit.charAt(j);
+					if (ch >= '0' && ch <= '9') {
+						value += ch;
+					} else if (ch == '원') {
+						break;
+					} else {
+						unit += ch;
+					}
+				}
+
+				if (value == "") {
+					node.setDlimit(-1);
+					node.setAveRate(-1);
+				} else {
+					double dval = Double.parseDouble(value);
+					if (unit.equals("백만")) {
+						dval = dval / 100;
+					}
+					node.setDlimit(dval);
+
+					String rate = regionsInf.getRate();
+					String[] values = new String[2];
+					int idx = 0;
+					values[0] = "";
+					for (int j = 0; j < rate.length(); j++) {
+						char ch = rate.charAt(j);
+						if (ch >= '0' && ch <= '9' || ch == '.') {
+							values[idx] += ch;
+						} else if (ch == '~') {
+							idx++;
+							values[idx] = "";
+						}
+					}
+
+					double avgRate;
+
+					// 대출이자 전액....???????
+					if (values[0] == "" || values[0] == null) {
+						node.setAveRate(-1);
+					} else {
+						if (idx == 0) {
+							avgRate = Double.parseDouble(values[0]);
+						} else {
+							avgRate = (Double.parseDouble(values[0]) + Double.parseDouble(values[1])) / 2;
+						}
+						node.setAveRate(avgRate);
+					}
+				}
+
+				System.out.println(node.getName());
+				RegionsNodes[i] = node;
+				// end for
+			}
+
+			// sort
+			System.out.println("load success.");
+
+			Arrays.sort(RegionsNodes, new Comparator<RegionsNode>() {
+				public int compare(RegionsNode n1, RegionsNode n2) {
+					double n1Dlimit = n1.getDlimit();
+					double n2Dlimit = n2.getDlimit();
+					if (n1Dlimit == n2Dlimit) {
+						return Double.compare(n2.getAveRate(), n1.getAveRate());
+					}
+					return Double.compare(n2Dlimit, n1Dlimit);
+				}
+			});
+
+			// print nodes
+			// for (int k = 0; k < RegionsNodes.length; k++) {
+			// RegionsNode t = RegionsNodes[k];
+//				System.out.println(t.getName());
+//				System.out.println(t.getDlimit());
+//				System.out.println(t.getAveRate());
+			// }
+
+			/// json print
+			// createArrayNode
+			ObjectMapper mapper = new ObjectMapper();
+			ArrayNode arrNode = mapper.createArrayNode();
+			Map<String, Object> map = new HashMap<String, Object>();
+
+			for (int k = 0; k < num; k++) {
+				arrNode.add(RegionsNodes[k].getName());
+			}
+
+			map.put("Regions", arrNode);
+			json = mapper.writeValueAsString(map);
+			json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(map);
+
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return json;
+	}
+
+	/*
+	 * @RequestMapping("/sort") public String selectLimitSortedRegions(@RequestParam
+	 * int num) {
+	 */
+
+	@RequestMapping("/minRate")
+	public String selectMinRate() {
+		String json = "";
+
+		try {
+			List<RegionsInf> regionsInfList = regionsInfRepository.findAll();
+			RegionsNode[] regionsNodes = new RegionsNode[regionsInfList.size()];
+
+			for (int i = 0; i < regionsInfList.size(); i++) {
+				RegionsNode node = new RegionsNode();
+
+				node.setName(regionsRepository.findBycode(regionsInfList.get(i).getRegions().getCode()).getName());
+
+				String rate = regionsInfList.get(i).getRate();
+				String value = "";
+
+				for (int j = 0; j < rate.length(); j++) {
+					char ch = rate.charAt(j);
+					if (ch >= '0' && ch <= '9' || ch == '.') {
+						value += ch;
+					} else if (ch == '~') {
+						break;
+					}
+				}
+
+				// 대출이자 전액....???????
+				if (value != "") {
+					node.setRate(Double.parseDouble(value));
+				} else {
+					node.setRate(Double.MAX_VALUE);
+				}
+				regionsNodes[i] = node;
+
+				// end for
+			}
+
+			Arrays.sort(regionsNodes, new Comparator<RegionsNode>() {
+				public int compare(RegionsNode n1, RegionsNode n2) {
+					double n1Dlimit = n1.getRate();
+					double n2Dlimit = n2.getRate();
+
+					return Double.compare(n1Dlimit, n2Dlimit);
+				}
+			});
+
+			ObjectMapper mapper = new ObjectMapper();
+
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("region", regionsNodes[0].getName());
+
+			json = mapper.writeValueAsString(map);
+			json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(map);
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		return json;
 	}
 }
