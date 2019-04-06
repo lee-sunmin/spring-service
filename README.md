@@ -59,8 +59,8 @@ BODY -
 ```json
 
 {
-	"username": "admin",
-	"password": "password"
+   "username": "admin",
+   "password": "password"
 }
 ```
 
@@ -74,8 +74,8 @@ URL : http://localhost:8080/login
 BODY - 
 ```json
 {
-"username": "admin",
-"password": "password"
+   "username": "admin",
+   "password": "password"
 }
 ```
 
@@ -120,6 +120,7 @@ key:Authorization
 value: Bearer TOKEN (Login 결과로 생성된 TOKEN 값 입력)
 
 BODY - 
+```json
 {
   "mgmt" : "강릉지점", 
   "rate" : "3%",
@@ -130,6 +131,7 @@ BODY -
   "reception" : "강릉시 소재 영업점",
   "target" : "선민이" <- 수정하고자 하는 정보
 }
+```
 
 7. 지원한도 컬럼에서 지원금액으로 내림차순 정렬하여 특정 개수만 출력하는 API
 
