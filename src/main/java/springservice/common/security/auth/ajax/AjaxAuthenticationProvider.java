@@ -19,7 +19,7 @@ import org.springframework.util.Assert;
 
 import springservice.common.domain.ApplicationUser;
 import springservice.common.domain.DatabaseUserService;
-import springservice.common.security.UserContext;
+import springservice.common.security.model.UserContext;
 
 @Component
 public class AjaxAuthenticationProvider implements AuthenticationProvider {

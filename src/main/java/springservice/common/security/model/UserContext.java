@@ -1,4 +1,5 @@
-package springservice.common.security;
+package springservice.common.security.model;
+
 
 import java.util.List;
 
@@ -28,3 +29,5 @@ public class UserContext {
 		return authorities;
 	}
 }
+
+

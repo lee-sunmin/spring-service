@@ -11,8 +11,8 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
-import springservice.common.security.JwtToken;
 import springservice.common.security.exceptions.JwtExpiredTokenException;
+import springservice.common.security.model.token.JwtToken;
 
 public class RawAccessJwtToken implements JwtToken {
 	private static Logger logger = LoggerFactory.getLogger(RawAccessJwtToken.class);

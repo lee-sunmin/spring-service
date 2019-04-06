@@ -22,8 +22,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import springservice.common.security.LoginRequest;
-import springservice.common.security.WebUtil;
+import springservice.common.WebUtil;
 import springservice.common.security.exceptions.AuthMethodNotSupportedException;
 
 public class AjaxLoginProcessingFilter extends AbstractAuthenticationProcessingFilter {

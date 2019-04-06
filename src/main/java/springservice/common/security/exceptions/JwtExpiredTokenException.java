@@ -2,7 +2,8 @@ package springservice.common.security.exceptions;
 
 import org.springframework.security.core.AuthenticationException;
 
-import springservice.common.security.JwtToken;
+import springservice.common.security.model.token.JwtToken;
+
 
 public class JwtExpiredTokenException extends AuthenticationException {
 	private static final long serialVersionUID = -5959543783324224864L;

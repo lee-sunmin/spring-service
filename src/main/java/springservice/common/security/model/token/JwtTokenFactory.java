@@ -1,4 +1,4 @@
-package springservice.common.security;
+package springservice.common.security.model.token;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -14,6 +14,9 @@ import org.springframework.stereotype.Component;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import springservice.common.security.config.JwtSettings;
+import springservice.common.security.model.Scopes;
+import springservice.common.security.model.UserContext;
 
 @Component
 public class JwtTokenFactory {

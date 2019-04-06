@@ -1,4 +1,4 @@
-package springservice.common.security;
+package springservice.common.security.model;
 
 public enum Scopes {
 	REFRESH_TOKEN;

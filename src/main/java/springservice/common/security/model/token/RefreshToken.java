@@ -1,6 +1,6 @@
-package springservice.common.security;
+package springservice.common.security.model.token;
 
-import java.util.List;
+//import java.util.List;
 import java.util.Optional;
 
 import org.springframework.security.authentication.BadCredentialsException;
@@ -9,7 +9,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import springservice.common.domain.RawAccessJwtToken;
 
-@SuppressWarnings("unchecked")
+//@SuppressWarnings("unchecked")
 public class RefreshToken implements JwtToken {
 	private Jws<Claims> claims;
 
@@ -31,7 +31,7 @@ public class RefreshToken implements JwtToken {
 	public static Optional<RefreshToken> create(RawAccessJwtToken token, String signingKey) {
 		Jws<Claims> claims = token.parseClaims(signingKey);
 
-		List<String> scopes = claims.getBody().get("scopes", List.class);
+		//List<String> scopes = claims.getBody().get("scopes", List.class);
 //		if (scopes == null || scopes.isEmpty() || !scopes.stream()
 //				.filter(scope -> Scopes.REFRESH_TOKEN.authority().equals(scope)).findFirst().isPresent()) {
 //			return Optional.empty();

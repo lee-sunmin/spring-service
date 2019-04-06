@@ -1,4 +1,4 @@
-package springservice.common.security;
+package springservice.common.security.model.token;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

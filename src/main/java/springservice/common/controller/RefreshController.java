@@ -29,14 +29,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import springservice.common.domain.ApplicationUser;
 import springservice.common.domain.RawAccessJwtToken;
 import springservice.common.domain.UserService;
-import springservice.common.security.JwtSettings;
-import springservice.common.security.JwtToken;
-import springservice.common.security.JwtTokenFactory;
-import springservice.common.security.RefreshToken;
-import springservice.common.security.UserContext;
 import springservice.common.security.auth.jwt.extractor.TokenExtractor;
+import springservice.common.security.config.JwtSettings;
 import springservice.common.security.config.WebSecurityConfig;
 import springservice.common.security.exceptions.InvalidJwtToken;
+import springservice.common.security.model.UserContext;
+import springservice.common.security.model.token.JwtToken;
+import springservice.common.security.model.token.JwtTokenFactory;
+import springservice.common.security.model.token.RefreshToken;
 
 @RestController
 public class RefreshController {

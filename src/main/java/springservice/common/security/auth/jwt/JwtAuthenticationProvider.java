@@ -13,9 +13,10 @@ import org.springframework.stereotype.Component;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import springservice.common.domain.RawAccessJwtToken;
-import springservice.common.security.JwtSettings;
-import springservice.common.security.UserContext;
+
 import springservice.common.security.auth.JwtAuthenticationToken;
+import springservice.common.security.config.JwtSettings;
+import springservice.common.security.model.UserContext;
 
 @Component
 @SuppressWarnings("unchecked")

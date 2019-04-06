@@ -1,4 +1,4 @@
-package springservice.common.security;
+package springservice.common.security.auth.ajax;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -19,10 +19,14 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import springservice.common.security.model.UserContext;
+import springservice.common.security.model.token.JwtToken;
+import springservice.common.security.model.token.JwtTokenFactory;
+
 @Component
 public class AjaxAwareAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
-	//It is called when client has been successfully authenticated.
-	
+	// It is called when client has been successfully authenticated.
+
 	private final ObjectMapper mapper;
 	private final JwtTokenFactory tokenFactory;
 

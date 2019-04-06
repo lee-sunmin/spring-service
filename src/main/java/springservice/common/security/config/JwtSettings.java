@@ -1,4 +1,4 @@
-package springservice.common.security;
+package springservice.common.security.config;
 
 import org.springframework.beans.factory.annotation.Value;
 //import org.springframework.boot.context.properties.ConfigurationProperties;

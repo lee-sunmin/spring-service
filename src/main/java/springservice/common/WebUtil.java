@@ -1,4 +1,4 @@
-package springservice.common.security;
+package springservice.common;
 
 import javax.servlet.http.HttpServletRequest;
 
