@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import springservice.domain.Regions;
-import springservice.domain.RegionsRepository;
+import springservice.domain.repository.RegionsRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -38,8 +38,8 @@ public class RegionsRepositoryTest {
 		List<Regions> regionsList = regionsRepository.findAll();
 
 		// then
-//		Regions regions = regionsList.get(0);
-//		assertThat(regions.getCode(), is(1L));
-//		assertThat(regions.getName(), is("수원시"));
+		Regions regions = regionsList.get(0);
+		assertThat(regions.getCode(), is(1L));
+		assertThat(regions.getName(), is("수원시"));
 	}
 }

@@ -14,9 +14,10 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import springservice.domain.Regions;
-import springservice.domain.RegionsInfRepository;
 import springservice.domain.RegionsInfUpdateRequestDto;
-import springservice.domain.RegionsRepository;
+import springservice.domain.repository.RegionsInfRepository;
+import springservice.domain.repository.RegionsRepository;
+
 
 @RestController
 public class UpdateController {

@@ -19,9 +19,9 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import lombok.AllArgsConstructor;
 import springservice.domain.RegionsInf;
-import springservice.domain.RegionsInfRepository;
 import springservice.domain.RegionsNode;
-import springservice.domain.RegionsRepository;
+import springservice.domain.repository.RegionsInfRepository;
+import springservice.domain.repository.RegionsRepository;
 
 @RestController
 @AllArgsConstructor

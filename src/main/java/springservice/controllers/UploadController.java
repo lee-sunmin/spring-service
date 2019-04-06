@@ -8,8 +8,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import springservice.domain.Regions;
 import springservice.domain.RegionsInf;
-import springservice.domain.RegionsInfRepository;
-import springservice.domain.RegionsRepository;
+import springservice.domain.repository.RegionsInfRepository;
+import springservice.domain.repository.RegionsRepository;
 
 @RestController
 public class UploadController {

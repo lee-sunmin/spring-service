@@ -1,4 +1,4 @@
-package springservice.domain;
+package springservice.common;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
