@@ -60,7 +60,7 @@ BODY -
 
 {
 	"username": "admin",
-  "password": "password"
+	"password": "password"
 }
 ```
 
@@ -72,10 +72,12 @@ URL : http://localhost:8080/login
 
 입력 :
 BODY - 
+```json
 {
-	"username": "admin",
-  "password": "password"
+"username": "admin",
+"password": "password"
 }
+```
 
 3. refresh 토큰 재발급
 
