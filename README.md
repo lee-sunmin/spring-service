@@ -56,10 +56,13 @@ URL : http://localhost:8080/users/sign-up
 
 입력 :
 BODY - 
+```json
+
 {
 	"username": "admin",
   "password": "password"
-}
+}```
+
 
 2. login
 
