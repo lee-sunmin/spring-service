@@ -1,76 +1,42 @@
 package springservice.controllers;
 
-import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.google.code.geocoder.Geocoder;
-import com.google.code.geocoder.GeocoderRequestBuilder;
-import com.google.code.geocoder.model.GeocodeResponse;
-import com.google.code.geocoder.model.GeocoderRequest;
-import com.google.code.geocoder.model.GeocoderResult;
-import com.google.code.geocoder.model.GeocoderStatus;
-import com.google.code.geocoder.model.LatLng;
-
 @RestController
 public class RecommController {
+	static String KEY = "AIzaSyDwb7v4ZRUlj_Z7AM8y8joxFaR2NXZgg5c";
 
 	@RequestMapping("/recommend")
 	public static void testGeoCoding() {
-		Float[] coords = geoCoding("충남 보령시");
-
-		//System.out.println("충남 대천" + ": " + coords[0] + ", " + coords[1]);
-		coords = geoCoding("충청남도 보령시");
-		coords = geoCoding("보령시");
-		System.out.println("충남 대천" + ": " + coords[0] + ", " + coords[1]);
-	}
-	
-	public static Float[] geoCoding(String location) {
-
-		if (location == null)
-
-			return null;
-
-		Geocoder geocoder = new Geocoder();
-
-		// setAddress : 변환하려는 주소 (경기도 성남시 분당구 등)
-
-		// setLanguate : 인코딩 설정
-
-		GeocoderRequest geocoderRequest = new GeocoderRequestBuilder().setAddress(location).setLanguage("ko")
-				.getGeocoderRequest();
-
-		GeocodeResponse geocoderResponse;
-
 		try {
-
-			geocoderResponse = geocoder.geocode(geocoderRequest);
-
-			if (geocoderResponse.getStatus() == GeocoderStatus.OK & !geocoderResponse.getResults().isEmpty()) {
-
-				GeocoderResult geocoderResult = geocoderResponse.getResults().iterator().next();
-
-				LatLng latitudeLongitude = geocoderResult.getGeometry().getLocation();
-
-				Float[] coords = new Float[2];
-
-				coords[0] = latitudeLongitude.getLat().floatValue();
-
-				coords[1] = latitudeLongitude.getLng().floatValue();
-
-				return coords;
-
-			}
-
-		} catch (IOException ex) {
-
-			ex.printStackTrace();
-
+			// sendGet("https://maps.googleapis.com/maps/api/geocode/json?address=“보령시”&key=AIzaSyDwb7v4ZRUlj_Z7AM8y8joxFaR2NXZgg5c");
+		} catch (Exception e) {
+			System.out.println(e);
 		}
 
-		return null;
+	}
 
+	private static void sendGet(String targetUrl) throws Exception {
+		URL url = new URL(targetUrl);
+		HttpURLConnection con = (HttpURLConnection) url.openConnection();
+		con.setRequestMethod("GET"); // optional default is GET
+		// con.setRequestProperty("User-Agent", USER_AGENT); // add request header
+		int responseCode = con.getResponseCode();
+		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+		String inputLine;
+		StringBuffer response = new StringBuffer();
+		while ((inputLine = in.readLine()) != null) {
+			response.append(inputLine);
+		}
+		in.close(); // print result
+		System.out.println("HTTP 응답 코드 : " + responseCode);
+		System.out.println("HTTP body : " + response.toString());
 	}
 
 }
