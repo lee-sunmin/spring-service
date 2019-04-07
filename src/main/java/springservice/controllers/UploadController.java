@@ -81,6 +81,6 @@ public class UploadController {
 		} catch (Exception e) {
 			
 		}
-		return "/upload";
+		return "success";
 	}
 }

@@ -34,9 +34,6 @@ public class SelectControllerTest {
 
 	@After
 	public void cleanup() {
-		/**
-		 * 이후 테스트 코드에 영향을 끼치지 않기 위해 테스트 메소드가 끝날때 마다 respository 전체 비우는 코드
-		 **/
 		regionsRepository.deleteAll();
 		regionsInfRepository.deleteAll();
 	}
@@ -44,7 +41,6 @@ public class SelectControllerTest {
 	@Test
 	@Sql("insertAll.sql")
 	public void testSelectList() {
-		// fail("Not yet implemented");
 		List<RegionsInf> list = regionsInfRepository.findAll();
 
 		System.out.println(list.size());
@@ -170,7 +166,6 @@ public class SelectControllerTest {
 		for (int i = 0; i < regionsInfList.size(); i++) {
 			RegionsNode node = new RegionsNode();
 
-			//node.setName(regionsRepository.findBycode(regionsInfList.get(i).getRegions().getCode()).getName());
 			node.setCode(regionsInfList.get(i).getRegions().getCode());
 			String rate = regionsInfList.get(i).getRate();
 			String value = "";
@@ -205,7 +200,6 @@ public class SelectControllerTest {
 		
 		String institute = regionsInfRepository.findByregions(regionsRepository.findBycode(code)).getInstitute();
 		assertThat(institute, is("금천구"));
-		
 	}
 
 }

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: springservice.controllers.SelectControllerTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.62 sec - in springservice.controllers.SelectControllerTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.331 sec - in springservice.controllers.SelectControllerTest

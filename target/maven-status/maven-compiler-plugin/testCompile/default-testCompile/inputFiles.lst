@@ -1,4 +1,5 @@
 /Users/iseonmin/eclipse-workspace/spring-service/src/test/java/springservice/controllers/UploadControllerTest.java
+/Users/iseonmin/eclipse-workspace/spring-service/src/test/java/springservice/common/controller/UserControllerTest.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/test/java/springservice/controllers/SelectControllerTest.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/test/java/springservice/common/security/model/token/JwtTokenFactoryTest.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/test/java/springservice/controllers/UpdateControllerTest.java

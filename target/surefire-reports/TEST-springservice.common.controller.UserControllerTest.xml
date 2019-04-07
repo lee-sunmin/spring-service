@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="springservice.common.controller.UserControllerTest" time="0.001" tests="1" errors="0" skipped="0" failures="1">
+<testsuite name="springservice.common.controller.UserControllerTest" time="0.609" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="10.0.2+13"/>
@@ -25,7 +25,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="classworlds.conf" value="/Users/iseonmin/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf651621677877442270.tmp"/>
+    <property name="classworlds.conf" value="/Users/iseonmin/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf15651168063797117319.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/iseonmin/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="jdk.debug" value="release"/>
@@ -62,17 +62,5 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|localhost|*.localhost|127.0.0.1:21300|*.127.0.0.1:21300"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testSignUp" classname="springservice.common.controller.UserControllerTest" time="0.001">
-    <failure message="Not yet implemented" type="java.lang.AssertionError">java.lang.AssertionError: Not yet implemented
-	at org.junit.Assert.fail(Assert.java:88)
-	at springservice.common.controller.UserControllerTest.testSignUp(UserControllerTest.java:16)
-</failure>
-    <system-out><![CDATA[2019-04-08 00:13:37.925  INFO 6175 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [springservice.common.controller.UserControllerTest], using SpringBootContextLoader
-2019-04-08 00:13:37.926  INFO 6175 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [springservice.common.controller.UserControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2019-04-08 00:13:37.926  INFO 6175 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [springservice.common.controller.UserControllerTest]: UserControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2019-04-08 00:13:37.934  INFO 6175 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration springservice.SpringServiceApplication for test class springservice.common.controller.UserControllerTest
-2019-04-08 00:13:37.938  INFO 6175 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-2019-04-08 00:13:37.945  INFO 6175 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@52a3eba3, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4ed74d03, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7ec729be, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4f7da3a2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@24ea71d, org.springframework.test.context.transaction.TransactionalTestExecutionListener@76055d02, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@31c800a5, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@130ad58d, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@648bfebe, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@383a5260, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4986b0ea, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@ce5a2ea]
-]]></system-out>
-  </testcase>
+  <testcase name="testSignUp" classname="springservice.common.controller.UserControllerTest" time="0.609"/>
 </testsuite>

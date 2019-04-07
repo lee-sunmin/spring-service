@@ -2,10 +2,7 @@ package springservice.common.security.model.token;
 
 import static org.junit.Assert.*;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,12 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
-//import org.springframework.security.core.GrantedAuthority;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import springservice.common.domain.RawAccessJwtToken;
 import springservice.common.security.auth.JwtAuthenticationToken;
 import springservice.common.security.auth.jwt.JwtAuthenticationProvider;
