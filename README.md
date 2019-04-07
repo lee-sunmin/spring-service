@@ -174,6 +174,8 @@ Refresh token, Access token 생성하여 출력
 
 ##### 1. jar 파일이 있는 폴더로 이동
 
+[spring-service](https://github.com/lee-sunmin/spring-service)/**target**/
+
 ##### 2. 서비스 시작
 
 ``` java -jar spring-service-0.0.1-SNAPSHOT.jar ```
@@ -265,6 +267,8 @@ BODY -
 > 통신 방식 : GET
 
 > URL : http://localhost:8080/upload
+
+*최초 1회만 등록 가능*
 
 [입력]
 
