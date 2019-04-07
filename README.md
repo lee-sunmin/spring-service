@@ -18,9 +18,9 @@
 
 **[REGIONS]** Master table
 
-code : PK, GeneratedValue
+code(기관코드) : PK, GeneratedValue
 
-name : 
+name(지자체명)
 
 **[REGIONS_INF]**
 
@@ -118,7 +118,7 @@ Comparator를 사용한 Sort : 오름차순
 
 
 
-##### < 추가 제약사항 >
+### < 추가 제약사항 >
 
 **signup과 login을 제외한 모든 API는 Header에 Token 값으로 유효성 검사 실시**
 
@@ -186,13 +186,19 @@ Refresh token, Access token 생성하여 출력
 
 #### 1. signup 
 
-> 통신 방식 : POST
+> Method : POST
 
 > URL : http://localhost:8080/users/sign-up
 
 [입력]
 
-BODY - 
+**HEADER**
+
+| key          | value            |
+| ------------ | ---------------- |
+| Content-Type | application/json |
+
+**BODY**
 
 ```json
 {
@@ -201,11 +207,17 @@ BODY -
 }
 ```
 
+[출력]
+
+```
+success
+```
+
 
 
 #### 2. login
 
-> 통신 방식 : POST
+> Method : POST
 
 > URL : http://localhost:8080/login
 
@@ -213,9 +225,10 @@ BODY -
 
 **HEADER**
 
-| key              | value          |
-| ---------------- | -------------- |
-| X-Requested-With | XMLHttpRequest |
+| key              | value            |
+| ---------------- | ---------------- |
+| X-Requested-With | XMLHttpRequest   |
+| Content-Type     | application/json |
 
 **BODY**
 
@@ -239,7 +252,7 @@ BODY -
 
 #### 3. refresh 토큰 재발급
 
-> 통신 방식 : GET
+> Method : GET
 
 > URL : http://localhost:8080/api/auth/token
 
@@ -250,6 +263,14 @@ BODY -
 | key           | value                                  |
 | ------------- | -------------------------------------- |
 | Authorization | Bearer token *(token : login 출력 값)* |
+
+예시
+
+```
+Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInNjb3BlcyI6W10sImlzcyI6Imh0dHA6Ly9zdW5taW4uY29tIiwiaWF0IjoxNTU0NjQxNDc0LCJleHAiOjE1NTQ2NDIzNzR9.YxHK-y8sujsMMYP8Qs6rGokSNrB8nnM5ve7u48CpBLhsNx_A72Pq0PQSaVYPtGdP4TistKgQW-t8J4ABPDL6LA
+```
+
+
 
 [출력]
 
@@ -264,11 +285,9 @@ BODY -
 
 #### 4. 데이터 파일에서 각 레코드를 데이터베이스에 저장하는 API
 
-> 통신 방식 : GET
+> Method : POST
 
 > URL : http://localhost:8080/upload
-
-*최초 1회만 등록 가능*
 
 [입력]
 
@@ -280,15 +299,15 @@ BODY -
 
 **Body**
 
-| key  | value     |
-| ---- | --------- |
-| file | .csv 파일 |
+| key  | value                |
+| ---- | -------------------- |
+| file | .csv 파일(form-data) |
 
-
+*test csv 파일 경로 : [spring-service](https://github.com/lee-sunmin/spring-service)/**test**/*
 
 #### 5. 지원하는 지자체 목록 검색 API
 
-> 통신 방식 : GET
+> Method : GET
 
 > URL : http://localhost:8080/list
 
@@ -330,7 +349,7 @@ BODY -
 
 #### 6. 지원하는 지자체명을 입력받아 해당 지자체의 지원정보를 출력하는 API
 
-> 통신 방식 : GET
+> Method : GET
 
 > URL : http://localhost:8080/select?region=광명시
 
@@ -361,7 +380,7 @@ BODY -
 
 #### 7. 지원하는 지자체 정보 수정 기능 API
 
-> 통신 방식 : POST
+> Method : POST
 
 > URL : http://localhost:8080/update
 
@@ -382,7 +401,7 @@ BODY -
 
 ```json
 {
-  "region" : "강릉시",
+  "region" : "광명시",
   "target" : "선민이"
 }
 ```
@@ -406,7 +425,7 @@ BODY -
 
 #### 8. 지원한도 컬럼에서 지원금액으로 내림차순 정렬하여 특정 개수만 출력하는 API
 
-> 통신 방식 : GET
+> Method : GET
 
 > URL : http://localhost:8080/sort?num=3
 
@@ -430,7 +449,7 @@ BODY -
 
 #### 9. 이차보전 컬럼에서 보전 비율이 가장 작은 *추천 기관명*을 출력하는 API
 
-> 통신 방식 : GET
+> Method : GET
 
 > URL : http://localhost:8080/minRate
 
