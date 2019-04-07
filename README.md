@@ -14,21 +14,27 @@
 
 ------
 
-#### Entity
+#### Entity ( 1: 1 )
 
 **[REGIONS]** Master table
 
-code(기관코드) : PK, GeneratedValue
+CODE(기관코드) : PK, GeneratedValue
 
-name(지자체명)
+NAME(지자체명)
 
 **[REGIONS_INF]**
 
-id : PK, GeneratedValue
+ID : PK, GeneratedValue
 
-regions : FK(REGIONS.code)
+CODE : FK(REGIONS.code)
 
-etc.
+INSTITUTE, MGMT, RATE, RECEPTION, SLIMIT, TARGET, USAGE
+
+CREATE_DATE_TIME : 최초 입력 시간
+
+UPDATE_DATE_TIME : 업데이트 시간
+
+
 
 
 
@@ -215,6 +221,10 @@ success
 
 
 
+
+
+
+
 #### 2. login
 
 > Method : POST
@@ -247,6 +257,10 @@ success
     "refreshToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInNjb3BlcyI6WyJST0xFX1JFRlJFU0hfVE9LRU4iXSwiaXNzIjoiaHR0cDovL3N1bm1pbi5jb20iLCJqdGkiOiIxNmE5ZDE5Zi0wNTY5LTRhMjYtYWQ4Ni0yM2FjZDhmOGM3MDkiLCJpYXQiOjE1NTQ2NDE0NzQsImV4cCI6MTU1NDY0NTA3NH0.czE38-rVbJOdIoxDtbwv0R2L9jXu2YhEWGFu6N4f2xYY7CPfYsCAhqpdJTNDJfOVHdQb9gAUKvr_X-v0xFHYwg"
 }
 ```
+
+
+
+
 
 
 
@@ -283,6 +297,10 @@ Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInNjb3BlcyI6W10sImlzcyI6Imh0dHA6
 
 
 
+
+
+
+
 #### 4. 데이터 파일에서 각 레코드를 데이터베이스에 저장하는 API
 
 > Method : POST
@@ -304,6 +322,12 @@ Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInNjb3BlcyI6W10sImlzcyI6Imh0dHA6
 | file | .csv 파일(form-data) |
 
 *test csv 파일 경로 : [spring-service](https://github.com/lee-sunmin/spring-service)/**test**/*
+
+
+
+
+
+
 
 #### 5. 지원하는 지자체 목록 검색 API
 
@@ -347,6 +371,10 @@ Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInNjb3BlcyI6W10sImlzcyI6Imh0dHA6
 
 
 
+
+
+
+
 #### 6. 지원하는 지자체명을 입력받아 해당 지자체의 지원정보를 출력하는 API
 
 > Method : GET
@@ -375,6 +403,10 @@ Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInNjb3BlcyI6W10sImlzcyI6Imh0dHA6
   "target" : "광명시 소재 중소기업으로서 광명시장이 추천한 자"
 }
 ```
+
+
+
+
 
 
 
@@ -423,6 +455,10 @@ Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInNjb3BlcyI6W10sImlzcyI6Imh0dHA6
 
 
 
+
+
+
+
 #### 8. 지원한도 컬럼에서 지원금액으로 내림차순 정렬하여 특정 개수만 출력하는 API
 
 > Method : GET
@@ -444,6 +480,10 @@ Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInNjb3BlcyI6W10sImlzcyI6Imh0dHA6
   "Regions" : [ "경기도", "제주도", "국토교통부" ]
 }
 ```
+
+
+
+
 
 
 
