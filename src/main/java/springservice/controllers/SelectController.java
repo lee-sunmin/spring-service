@@ -123,11 +123,9 @@ public class SelectController {
 				RegionsNode node = new RegionsNode();
 
 				String name = regionsRepository.findBycode(regionsInf.getRegions().getCode()).getName();
-
 				node.setName(name);
 
 				String slimit = regionsInf.getSlimit();
-
 				String value = "";
 				String unit = "";
 
@@ -167,8 +165,6 @@ public class SelectController {
 					}
 
 					double avgRate;
-
-					// 대출이자 전액....???????
 					if (values[0] == "" || values[0] == null) {
 						node.setAveRate(-1);
 					} else {
@@ -180,8 +176,6 @@ public class SelectController {
 						node.setAveRate(avgRate);
 					}
 				}
-
-				System.out.println(node.getName());
 				RegionsNodes[i] = node;
 				// end for
 			}
@@ -233,11 +227,6 @@ public class SelectController {
 		return json;
 	}
 
-	/*
-	 * @RequestMapping("/sort") public String selectLimitSortedRegions(@RequestParam
-	 * int num) {
-	 */
-
 	@RequestMapping("/minRate")
 	public String selectMinRate() {
 		String json = "";
@@ -249,8 +238,9 @@ public class SelectController {
 			for (int i = 0; i < regionsInfList.size(); i++) {
 				RegionsNode node = new RegionsNode();
 
-				node.setName(regionsRepository.findBycode(regionsInfList.get(i).getRegions().getCode()).getName());
-
+				//node.setName(regionsRepository.findBycode(regionsInfList.get(i).getRegions().getCode()).getName());
+				node.setCode(regionsInfList.get(i).getRegions().getCode());
+				
 				String rate = regionsInfList.get(i).getRate();
 				String value = "";
 
@@ -263,7 +253,6 @@ public class SelectController {
 					}
 				}
 
-				// 대출이자 전액....???????
 				if (value != "") {
 					node.setRate(Double.parseDouble(value));
 				} else {
@@ -286,8 +275,9 @@ public class SelectController {
 			ObjectMapper mapper = new ObjectMapper();
 
 			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("region", regionsNodes[0].getName());
-
+			Long code = regionsNodes[0].getCode();
+			map.put("institute", regionsInfRepository.findByregions(regionsRepository.findBycode(code)).getInstitute());
+			
 			json = mapper.writeValueAsString(map);
 			json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(map);
 		} catch (JsonGenerationException e) {

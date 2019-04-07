@@ -12,6 +12,6 @@ public class RegionsNode {
 	private double dlimit;
 	private double aveRate;
 	
-	private String code;
+	private Long code;
 	private double rate;
 }

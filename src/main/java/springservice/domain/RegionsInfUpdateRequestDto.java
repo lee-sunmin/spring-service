@@ -11,6 +11,7 @@ public class RegionsInfUpdateRequestDto {
 
 	private Long id;
 	private Regions regions;
+	// name
 	private String region;
 	private String target;
 	private String usage;
