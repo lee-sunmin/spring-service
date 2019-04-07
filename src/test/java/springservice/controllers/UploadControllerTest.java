@@ -33,7 +33,7 @@ public class UploadControllerTest {
 
 	@Test
 	public void testUploadFormPOST() throws IOException {
-		File file = new File("/Users/iseonmin/Desktop/2019.csv");
+		File file = new File("test/2019.csv");
 		Path path = Paths.get(file.getAbsolutePath());
 		byte[] data = Files.readAllBytes(path);
 
@@ -67,9 +67,7 @@ public class UploadControllerTest {
 			}
 
 			regionsRepository.save(Regions.builder().name(sLine[1]).build());
-
 			Regions regions = regionsRepository.findByname(sLine[1]);
-
 			regionsInfRepository.save(RegionsInf.builder().regions(regions).target(sLine[2]).usage(sLine[3])
 					.slimit(sLine[4]).rate(sLine[5]).institute(sLine[6]).mgmt(sLine[7]).reception(sLine[8]).build());
 		}
