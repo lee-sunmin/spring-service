@@ -32,15 +32,7 @@ public class UploadController {
 		}
 
 		// EUC-KR 이 아닐 경우 고려해야 함.
-		String str2 = new String(file.getBytes(), "EUC-KR");
-
-		fileParsing(str2);
-
-		return "/upload";
-	}
-
-	public boolean fileParsing(String input) {
-		System.out.println("[fileParsing start]");
+		String input = new String(file.getBytes(), "EUC-KR");
 
 		try {
 			String[] token = input.split("[\r\n\t]");
@@ -77,15 +69,10 @@ public class UploadController {
 				regionsInfRepository
 						.save(RegionsInf.builder().regions(regions).target(sLine[2]).usage(sLine[3]).slimit(sLine[4])
 								.rate(sLine[5]).institute(sLine[6]).mgmt(sLine[7]).reception(sLine[8]).build());
-
-				// System.out.println("success " + sLine[1]);
 			}
 		} catch (Exception e) {
-			System.out.println("error : " + e);
+			
 		}
-		System.out.println("[fileParsing fin]");
-
-		return true;
+		return "/upload";
 	}
-
 }

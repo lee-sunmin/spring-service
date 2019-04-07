@@ -1,6 +1,7 @@
 package springservice;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 import java.util.List;
@@ -39,13 +40,16 @@ public class RegionsInfRepositoryTest {
 		// given
 		regionsRepository.save(Regions.builder().name("강릉시").build());
 		Regions regions = regionsRepository.findByname("강릉시");
-
+                                                                             
 		regionsInfRepository.save(RegionsInf.builder().regions(regions).target("강릉시 소재 중소기업으로서 강릉시장이 추천한 자").usage("운전")
 				.slimit("추천금액 이내").rate("3%").institute("강릉시").mgmt("강릉지점").reception("강릉시 소재 영업점").build());
 
 		// when
-		List<RegionsInf> regionsInfList = regionsInfRepository.findAll();
+		//List<RegionsInf> regionsInfList = regionsInfRepository.findAll();
 
+		// 추가. 
+		assertEquals(regionsInfRepository.count(), 1);
+		
 		// then
 //		RegionsInf regionsInf = regionsInfList.get(0);
 //		assertThat(regionsInf.getId(), is(1L));

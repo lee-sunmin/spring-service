@@ -14,10 +14,10 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import springservice.domain.Regions;
+import springservice.domain.RegionsInf;
 import springservice.domain.RegionsInfUpdateRequestDto;
 import springservice.domain.repository.RegionsInfRepository;
 import springservice.domain.repository.RegionsRepository;
-
 
 @RestController
 public class UpdateController {
@@ -31,8 +31,33 @@ public class UpdateController {
 	public String updateRegion(@RequestBody RegionsInfUpdateRequestDto dto) {
 		Regions regions = regionsRepository.findByname(dto.getRegion());
 
-		dto.setId(regionsInfRepository.findByregions(regions).getId());
+		RegionsInf regInf = regionsInfRepository.findByregions(regions);
+
+		dto.setId(regInf.getId());
 		dto.setRegions(regions);
+
+		// null
+		if (dto.getInstitute() == null) {
+			dto.setInstitute(regInf.getInstitute());
+		}
+		if (dto.getLimit() == null) {
+			dto.setLimit(regInf.getSlimit());
+		}
+		if (dto.getMgmt() == null) {
+			dto.setMgmt(regInf.getMgmt());
+		}
+		if (dto.getRate() == null) {
+			dto.setRate(regInf.getRate());
+		}
+		if (dto.getReception() == null) {
+			dto.setReception(regInf.getReception());
+		}
+		if (dto.getUsage() == null) {
+			dto.setUsage(regInf.getUsage());
+		}
+		if (dto.getTarget() == null) {
+			dto.setTarget(regInf.getTarget());
+		}
 
 		regionsInfRepository.save(dto.toEntity());
 

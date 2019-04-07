@@ -201,12 +201,12 @@ public class SelectController {
 			});
 
 			// print nodes
-			// for (int k = 0; k < RegionsNodes.length; k++) {
-			// RegionsNode t = RegionsNodes[k];
-//				System.out.println(t.getName());
-//				System.out.println(t.getDlimit());
-//				System.out.println(t.getAveRate());
-			// }
+			 for (int k = 0; k < RegionsNodes.length; k++) {
+			 RegionsNode t = RegionsNodes[k];
+				System.out.println(t.getName());
+				System.out.println(t.getDlimit());
+				System.out.println(t.getAveRate());
+			 }
 
 			/// json print
 			// createArrayNode

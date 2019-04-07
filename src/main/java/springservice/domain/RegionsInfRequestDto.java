@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class RegionsInfSaveRequestDto {
+public class RegionsInfRequestDto {
 	private Regions regions;
 	private String target;
 	private String usage;
