@@ -238,7 +238,6 @@ public class SelectController {
 			for (int i = 0; i < regionsInfList.size(); i++) {
 				RegionsNode node = new RegionsNode();
 
-				//node.setName(regionsRepository.findBycode(regionsInfList.get(i).getRegions().getCode()).getName());
 				node.setCode(regionsInfList.get(i).getRegions().getCode());
 				
 				String rate = regionsInfList.get(i).getRate();
@@ -259,7 +258,6 @@ public class SelectController {
 					node.setRate(Double.MAX_VALUE);
 				}
 				regionsNodes[i] = node;
-
 				// end for
 			}
 

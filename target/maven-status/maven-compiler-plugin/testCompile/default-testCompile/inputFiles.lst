@@ -1,3 +1,4 @@
-/Users/iseonmin/eclipse-workspace/spring-service/src/test/java/springservice/RegionsRepositoryTest.java
-/Users/iseonmin/eclipse-workspace/spring-service/src/test/java/springservice/SpringServiceApplicationTests.java
-/Users/iseonmin/eclipse-workspace/spring-service/src/test/java/springservice/RegionsInfRepositoryTest.java
+/Users/iseonmin/eclipse-workspace/spring-service/src/test/java/springservice/controllers/UploadControllerTest.java
+/Users/iseonmin/eclipse-workspace/spring-service/src/test/java/springservice/controllers/SelectControllerTest.java
+/Users/iseonmin/eclipse-workspace/spring-service/src/test/java/springservice/common/security/model/token/JwtTokenFactoryTest.java
+/Users/iseonmin/eclipse-workspace/spring-service/src/test/java/springservice/controllers/UpdateControllerTest.java

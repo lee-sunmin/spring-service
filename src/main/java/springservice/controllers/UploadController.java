@@ -1,5 +1,7 @@
 package springservice.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +25,12 @@ public class UploadController {
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public String uploadFormPOST(MultipartFile file) throws Exception {
 
+		List<RegionsInf> list = regionsInfRepository.findAll();
+
+		if(list.size() > 0) {
+			return "already load";
+		}
+		
 		System.out.println("[uploadFormPOST start]");
 
 		if (file != null) {

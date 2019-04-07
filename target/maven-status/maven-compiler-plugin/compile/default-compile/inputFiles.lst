@@ -1,8 +1,6 @@
-/Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/domain/PostsRepository.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/security/exceptions/AuthMethodNotSupportedException.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/security/exceptions/InvalidJwtToken.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/controller/RefreshController.java
-/Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/domain/PostsSaveRequestDto.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/domain/repository/RegionsInfRepository.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/WebUtil.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/controllers/UpdateController.java
@@ -11,13 +9,12 @@
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/SpringServiceApplication.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/security/auth/ajax/AjaxLoginProcessingFilter.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/controller/UserController.java
+/Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/domain/RegionsInfRequestDto.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/security/config/WebSecurityConfig.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/security/auth/jwt/JwtAuthenticationProvider.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/domain/DatabaseUserService.java
-/Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/domain/RegionsInfSaveRequestDto.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/security/model/token/AccessJwtToken.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/security/model/Scopes.java
-/Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/controllers/HomeController.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/domain/Regions.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/security/auth/jwt/verifier/TokenVerifier.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/controllers/UploadController.java
@@ -33,7 +30,6 @@
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/security/auth/jwt/extractor/JwtHeaderTokenExtractor.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/security/auth/JwtAuthenticationToken.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/domain/ApplicationUserRepository.java
-/Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/domain/Posts.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/domain/RegionsInf.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/security/config/JwtSettings.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/security/model/token/RefreshToken.java
@@ -42,6 +38,7 @@
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/domain/UserService.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/domain/Role.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/security/model/token/JwtToken.java
+/Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/security/config/PasswordEncoderConfig.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/security/exceptions/JwtExpiredTokenException.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/security/auth/jwt/extractor/TokenExtractor.java
 /Users/iseonmin/eclipse-workspace/spring-service/src/main/java/springservice/common/security/auth/jwt/SkipPathRequestMatcher.java

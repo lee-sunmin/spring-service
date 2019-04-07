@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: springservice.common.security.model.token.JwtTokenFactoryTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.203 sec - in springservice.common.security.model.token.JwtTokenFactoryTest

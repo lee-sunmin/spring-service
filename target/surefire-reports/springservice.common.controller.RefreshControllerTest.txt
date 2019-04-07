@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: springservice.common.controller.RefreshControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 sec <<< FAILURE! - in springservice.common.controller.RefreshControllerTest
+testRefreshToken(springservice.common.controller.RefreshControllerTest)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.AssertionError: Not yet implemented
+	at org.junit.Assert.fail(Assert.java:88)
+	at springservice.common.controller.RefreshControllerTest.testRefreshToken(RefreshControllerTest.java:11)
+

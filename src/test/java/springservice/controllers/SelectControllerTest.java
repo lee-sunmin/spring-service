@@ -170,8 +170,8 @@ public class SelectControllerTest {
 		for (int i = 0; i < regionsInfList.size(); i++) {
 			RegionsNode node = new RegionsNode();
 
-			node.setName(regionsRepository.findBycode(regionsInfList.get(i).getRegions().getCode()).getName());
-
+			//node.setName(regionsRepository.findBycode(regionsInfList.get(i).getRegions().getCode()).getName());
+			node.setCode(regionsInfList.get(i).getRegions().getCode());
 			String rate = regionsInfList.get(i).getRate();
 			String value = "";
 
@@ -201,7 +201,10 @@ public class SelectControllerTest {
 			}
 		});
 
-		assertThat(regionsNodes[0].getName(), is("금천구"));
+		Long code = regionsNodes[0].getCode();
+		
+		String institute = regionsInfRepository.findByregions(regionsRepository.findBycode(code)).getInstitute();
+		assertThat(institute, is("금천구"));
 		
 	}
 
