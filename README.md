@@ -36,15 +36,11 @@ etc.
 
 > 가정 : .csv 파일의 인코딩 방식 (EUC-KR)
 
-> 통신 방식 : POST  - .csv 파일 전달
-
-
+> Method : POST  - .csv 파일 전달
 
 각 레코드의 컬럼값은 ',' 구분자로 되어있으나 한 컬럼이 "a,b" 인 경우도 존재
 
 split(",")을 사용하지 않고 별도로 파싱 진행
-
-
 
 RegionsRepository - REGIONS 테이블에 데이터 저장 (code,name = {1,"강릉시"})
 
@@ -55,8 +51,6 @@ RegionsInfRepository - REGIONS_INF 테이블에 데이터 저장
 #### 2. 지원하는 지자체 목록 검색 API
 
 > Method : GET
-
-
 
 저장된 모든 지자체 목록 출력
 
@@ -70,8 +64,6 @@ RegionsInf의 정보 selectAll ->Regions(FK)를 사용해서 Regions엔티티의
 
 > Method : GET - regions=지자체명 (regions=강릉시)
 
-
-
 입력받은 지자체명으로 REGIONS 엔티티 내 매칭되는 code값 찾고, REGIONS_INF 엔티티의 정보 조회
 
 *출력 : JSON(Jackson)*
@@ -83,8 +75,6 @@ RegionsInf의 정보 selectAll ->Regions(FK)를 사용해서 Regions엔티티의
 > 가정 : 지자체명은 PK로 입력 값에 포함되어 있어야 하며, 이를 기준으로 변경된 정보만 수정
 
 > Method : POST 방식 - 수정하고자 하는 정보(JSON)
-
-
 
 입력받은 지자체명으로 REGIONS 엔티티와 매칭되는 REGIONS_INF 정보 찾고,
 
@@ -434,7 +424,7 @@ BODY -
 
 
 
-#### 9. 이차보전 컬럼에서 보전 비율이 가장 작은 추천 기관명을 출력하는 API
+#### 9. 이차보전 컬럼에서 보전 비율이 가장 작은 *추천 기관명*을 출력하는 API
 
 > 통신 방식 : GET
 
@@ -452,7 +442,7 @@ BODY -
 
 ```JSON
 {
-  "region" : "금천구"
+  "institute" : "금천구"
 }
 ```
 
