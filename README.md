@@ -1,4 +1,4 @@
-# spring-service(지자체 협약 지원 API 개발)
+# spring-service(API 개발)
 
 
 
